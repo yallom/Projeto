@@ -370,14 +370,15 @@ def graph():
     
     if resposta == "3":
         listatop = listarauth("1") #cria uma lista dos autores com mais publicações
-        listatop20 = listatop[:20] #escolhe os 20 autores com mais publicações
+        listatop20 = listatop[len(listatop)-20:len(listatop)] #escolhe os 20 autores com mais publicações
         matp.title("Distribuição de artigos por autor (Top 20)")
         matp.xlabel("Autor")
         matp.ylabel("Publicações")
         listaordenada = sorted(listatop20, key = lambda param: param[1])
+        print(listaordenada)
         datas = [i[0] for i in listaordenada]
-        Publicações = [int(i[1]) for i in listaordenada]
-        matp.bar(datas, Publicações, label = "Nº de Artigos", color = "r")
+        Publicações = [int(i[1][0]) for i in listaordenada]
+        matp.barh(datas, Publicações, label = "Nº de Artigos", color = "r")
         matp.legend()
         matp.show()
 
@@ -414,7 +415,7 @@ def graph():
         print (listinha)
         keys = [i[0] for i in listinha]
         Publicações = [int(i[1]) for i in listinha]
-        matp.bar(keys, Publicações, label = "Nº de Artigos", color = "b")
+        matp.barh(keys, Publicações, label = "Nº de Artigos", color = "b")
         matp.legend()
         matp.show()
 
@@ -903,7 +904,7 @@ class SistemaPubs:
             matp.ylabel("Publicações")
             datas = [i[0] for i in listatop20]
             Publicações = [int(i[1]['Ocorrências']) for i in listatop20]
-            matp.bar(datas, Publicações, label = "Nº de Artigos", color = "r")
+            matp.barh(datas, Publicações, label = "Nº de Artigos", color = "r")
             matp.legend()
             matp.show()
 
@@ -937,10 +938,9 @@ class SistemaPubs:
             matp.xlabel("Palavras-chave")
             matp.ylabel("Publicações")
             listinha.reverse() #inverte o sentido da lista de keywords
-            print (listinha)
             keys = [i[0] for i in listinha]
             Publicações = [int(i[1]['Ocorrências']) for i in listinha]
-            matp.bar(keys, Publicações, label = "Nº de Artigos", color = "b")
+            matp.barh(keys, Publicações, label = "Nº de Artigos", color = "b")
             matp.legend()
             matp.show()
 
