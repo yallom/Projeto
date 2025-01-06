@@ -344,7 +344,7 @@ def graph():
         listaordenada = sorted(listdatas.items(), key = lambda param: param[0]) #ordena a lista de datas, de acordo com o número de publicações por ano (menor->maior)
         datas = [i[0] for i in listaordenada] #cria um alista apenas com os anos, já ordenados
         Publicações = [int(i[1]) for i in listaordenada] #cria uma lista, apenas com as ocorrências, já ordenadas
-        matp.plot(datas, Publicações, label = "Nº de Artigos", color = "b", marker = "o") #define x = datas, y = Publicações, nome da variável = "Nº de Artigos", cor do grafico = blue, identificador de dados = círculo ("o")
+        matp.bar(datas, Publicações, label = "Nº de Artigos", color = "b") #define x = datas, y = Publicações, nome da variável = "Nº de Artigos", cor do grafico = blue, identificador de dados = círculo ("o")
         matp.legend() #ativa a legenda (nome da variável)
         matp.show() #ativa o gráfico
 
@@ -377,12 +377,12 @@ def graph():
         listaordenada = sorted(listatop20, key = lambda param: param[1])
         datas = [i[0] for i in listaordenada]
         Publicações = [int(i[1]) for i in listaordenada]
-        matp.plot(datas, Publicações, label = "Nº de Artigos", color = "r", marker = "o")
+        matp.bar(datas, Publicações, label = "Nº de Artigos", color = "r")
         matp.legend()
         matp.show()
 
     if resposta == "4":
-        listinha = searchPaper("4") #cria uma lista com os artigos de um autor
+        listinha = searchPaper(4) #cria uma lista com os artigos de um autor
         listdatas = {}
         for i in listinha:
             if "publish_date" in i:
@@ -401,7 +401,7 @@ def graph():
         listaordenada = sorted(listdatas.items(), key = lambda param: param[0])
         datas = [i[0] for i in listaordenada]
         Publicações = [int(i[1]) for i in listaordenada]
-        matp.plot(datas, Publicações, label = "Nº de Artigos", color = "b", marker = "o")
+        matp.bar(datas, Publicações, label = "Nº de Artigos", color = "b")
         matp.legend()
         matp.show()
 
@@ -414,7 +414,7 @@ def graph():
         print (listinha)
         keys = [i[0] for i in listinha]
         Publicações = [int(i[1]) for i in listinha]
-        matp.plot(keys, Publicações, label = "Nº de Artigos", color = "b", marker = "o")
+        matp.bar(keys, Publicações, label = "Nº de Artigos", color = "b")
         matp.legend()
         matp.show()
 
