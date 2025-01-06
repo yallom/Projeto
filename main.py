@@ -970,8 +970,8 @@ class SistemaPubs:
             for i in listaanos2:
                 print (i)
             matp.title("Top 20 Palavras-chave")
-            matp.xlabel("Palavras-chave")
-            matp.ylabel("Ocorrências")
+            matp.xlabel("Anos")
+            matp.ylabel("Palavras-chave")
             anos = [int(i[0]) for i in listaanos2]
             keys = [i[1][0][0] for i in listaanos2]
             matp.plot(anos, keys, label = "Nº de Artigos", color = "b", marker = 'o')
