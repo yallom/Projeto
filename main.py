@@ -974,9 +974,10 @@ class SistemaPubs:
             matp.ylabel("Ocorrências")
             anos = [int(i[0]) for i in listaanos2]
             keys = [i[1][0][0] for i in listaanos2]
-            matp.bar(anos, keys, label = "Nº de Artigos", color = "b")
+            matp.plot(anos, keys, label = "Nº de Artigos", color = "b", marker = 'o')
             matp.legend()
             matp.show()
+            return listaanos2
 
     def exportar_resultados(self, resultados: List[Dict], nome_ficheiro: str) -> bool:
         #Exporta resultados de pesquisa para um ficheiro
@@ -1500,7 +1501,7 @@ def Visual():
                     
                 elif evento_est == 'Keywords por ano':
                     sistema.graph('6')
-                    estatisticas_ativas = False
+                    
             
             janela_est.close()
 
